@@ -3,3 +3,5 @@ Doc/
 .agent/
 Context.md
 Reports/
+.venv/
+Noob/
