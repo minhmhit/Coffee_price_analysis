@@ -151,11 +151,11 @@ def truc_quan_hoa_eda(df_raw, df_cleaned, duong_dan_fig01, duong_dan_fig02):
     ax1.legend(lines_1 + lines_2, labels_1 + labels_2, loc="upper left", frameon=True, framealpha=0.9, fontsize=10)
     
     fig.tight_layout()
-    fig.savefig(duong_dan_fig01, dpi=300)
+    fig.savefig(duong_dan_fig01, dpi=300, bbox_inches="tight")
     plt.close(fig)
 
     # 2. Biểu đồ Boxplot phân phối các biến (fig02)
-    fig, axes = plt.subplots(1, 4, figsize=(16, 5), dpi=300)
+    fig, axes = plt.subplots(1, 4, figsize=(16, 6), dpi=300)
     danh_sach_ve = [
         ("VN_Coffee_Price", "Giá Tây Nguyên (VNĐ/kg)", "#8D6E63"),
         ("London_Robusta_Price", "Robusta London (USD/Tấn)", "#42A5F5"),
@@ -173,9 +173,9 @@ def truc_quan_hoa_eda(df_raw, df_cleaned, duong_dan_fig01, duong_dan_fig02):
         ax.grid(True, linestyle=":", alpha=0.6)
         
     fig.suptitle("PHÂN PHỐI VÀ HÀNG RÀO NGOẠI LAI (BOXPLOT & 3-SIGMA) CỦA CÁC BIẾN KINH TẾ LƯỢNG", 
-                 fontsize=14, fontweight="bold", y=1.02)
-    fig.tight_layout()
-    fig.savefig(duong_dan_fig02, dpi=300)
+                 fontsize=13, fontweight="bold", y=0.98)
+    fig.tight_layout(rect=[0, 0, 1, 0.93])
+    fig.savefig(duong_dan_fig02, dpi=300, bbox_inches="tight")
     plt.close(fig)
 
 def main():

@@ -118,7 +118,7 @@ def ve_bieu_do_du_bao_va_khoang_tin_cay(df, train_size, y_pred_test, fig_path):
     ax.legend(loc="upper left", frameon=True, fontsize=10)
 
     fig.tight_layout()
-    fig.savefig(fig_path, dpi=300)
+    fig.savefig(fig_path, dpi=300, bbox_inches="tight")
     plt.close(fig)
 
 def du_bao_3_kich_ban_tuong_lai(model, df_last_row):

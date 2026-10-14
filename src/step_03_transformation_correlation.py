@@ -112,13 +112,13 @@ def ve_bieu_do_tuong_quan(df, cac_bien_nghien_cuu, duong_dan_heatmap, duong_dan_
     ax.set_title("MA TRẬN HỆ SỐ TƯƠNG QUAN PEARSON (PEARSON CORRELATION HEATMAP)", 
                  fontsize=13, fontweight="bold", pad=15)
     fig.tight_layout()
-    fig.savefig(duong_dan_heatmap, dpi=300)
+    fig.savefig(duong_dan_heatmap, dpi=300, bbox_inches="tight")
     plt.close(fig)
 
     # 2. Scatter plot kiểm tra tính tuyến tính (fig04)
     cac_bien_x = [c for c in cac_bien_nghien_cuu if c != "VN_Coffee_Price"]
     so_bien = len(cac_bien_x)
-    fig, axes = plt.subplots(1, so_bien, figsize=(4.5 * so_bien, 4.5), dpi=300)
+    fig, axes = plt.subplots(1, so_bien, figsize=(4.5 * so_bien, 5.2), dpi=300)
     
     for i, col in enumerate(cac_bien_x):
         ax = axes[i]
@@ -148,9 +148,9 @@ def ve_bieu_do_tuong_quan(df, cac_bien_nghien_cuu, duong_dan_heatmap, duong_dan_
         ax.grid(True, linestyle=":", alpha=0.6)
 
     fig.suptitle("KIỂM TRA TÍNH TUYẾN TÍNH (LINEARITY) GIỮA CÁC BIẾN ĐỘC LẬP VÀ BIẾN PHỤ THUỘC Y", 
-                 fontsize=13, fontweight="bold", y=1.04)
-    fig.tight_layout()
-    fig.savefig(duong_dan_scatter, dpi=300)
+                 fontsize=13, fontweight="bold", y=0.98)
+    fig.tight_layout(rect=[0, 0, 1, 0.93])
+    fig.savefig(duong_dan_scatter, dpi=300, bbox_inches="tight")
     plt.close(fig)
 
 def thuc_hien_feature_scaling(df, cac_bien_dinh_luong_x, bien_y, cot_date, file_unscaled, file_scaled):

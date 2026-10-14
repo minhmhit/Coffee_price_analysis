@@ -76,7 +76,7 @@ def main():
 
     plt.tight_layout()
     fig10_path = os.path.join(FIGURES_DIR, "fig10_kmeans_elbow.png")
-    plt.savefig(fig10_path, dpi=300)
+    plt.savefig(fig10_path, dpi=300, bbox_inches="tight")
     plt.close()
 
     # 2. Huấn luyện K-Means K=3 & Gán nhãn
@@ -178,7 +178,7 @@ def main():
 
     plt.tight_layout()
     fig11_path = os.path.join(FIGURES_DIR, "fig11_kmeans_clusters.png")
-    plt.savefig(fig11_path, dpi=300)
+    plt.savefig(fig11_path, dpi=300, bbox_inches="tight")
     plt.close()
 
     # Self-Test

@@ -45,7 +45,7 @@ def kiem_dinh_gia_dinh_1_linearity(model, y_train, fig_path):
     ax.text(0.72, 0.15, textstr, transform=ax.transAxes, fontsize=11, verticalalignment="top", bbox=props)
 
     fig.tight_layout()
-    fig.savefig(fig_path, dpi=300)
+    fig.savefig(fig_path, dpi=300, bbox_inches="tight")
     plt.close(fig)
 
     return {
@@ -66,7 +66,7 @@ def kiem_dinh_gia_dinh_2_normality(model, fig_path):
     print(f"- Trung bình phần dư: {residuals.mean():+.8f}")
     print(f"- Shapiro-Wilk: W = {w_stat:.4f} | p-value = {p_val_shapiro:.4f}")
 
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 5.5), dpi=300)
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 6.2), dpi=300)
     sns.histplot(residuals / 1000.0, kde=True, color="#43A047", ax=ax1, bins=15, stat="density", edgecolor="black", alpha=0.6)
     ax1.set_title("Biểu đồ Phân phối Phần dư (Histogram & KDE)", fontsize=11, fontweight="bold")
     ax1.set_xlabel("Phần dư (Nghìn VNĐ/kg)", fontsize=10, fontweight="bold")
@@ -80,9 +80,9 @@ def kiem_dinh_gia_dinh_2_normality(model, fig_path):
     ax2.grid(True, linestyle=":", alpha=0.6)
 
     fig.suptitle(f"GIẢ ĐỊNH 2: KIỂM ĐỊNH PHÂN PHỐI CHUẨN PHẦN DƯ (W = {w_stat:.4f}, p = {p_val_shapiro:.4f})",
-                 fontsize=12, fontweight="bold", y=1.02)
-    fig.tight_layout()
-    fig.savefig(fig_path, dpi=300)
+                 fontsize=12, fontweight="bold", y=0.98)
+    fig.tight_layout(rect=[0, 0, 1, 0.92])
+    fig.savefig(fig_path, dpi=300, bbox_inches="tight")
     plt.close(fig)
 
     return {
@@ -133,7 +133,7 @@ def kiem_dinh_gia_dinh_3_multicollinearity(df_train, features, fig_path):
     ax.legend(loc="lower right", frameon=True, fontsize=9.5)
 
     fig.tight_layout()
-    fig.savefig(fig_path, dpi=300)
+    fig.savefig(fig_path, dpi=300, bbox_inches="tight")
     plt.close(fig)
 
     return {
@@ -169,7 +169,7 @@ def kiem_dinh_gia_dinh_4_homoscedasticity(model, fig_path):
     ax.grid(True, linestyle=":", alpha=0.6)
 
     fig.tight_layout()
-    fig.savefig(fig_path, dpi=300)
+    fig.savefig(fig_path, dpi=300, bbox_inches="tight")
     plt.close(fig)
 
     model_robust_hc3 = model.model.fit(cov_type="HC3")
